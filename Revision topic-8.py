@@ -640,3 +640,46 @@ l = 4
 k = 4
 print(l==k)
 print(l is k)
+
+# Example of for loop
+a = [1,2,3,4,5,6]
+for i in a:
+    print(i)
+
+l = {"Ali","Uzma",22,23}
+for i in l:
+    print(i)
+
+for i in range(1,20,3):
+    print(i)
+#While loop
+i = 1
+while i<=5:
+    print("Hi!",i)
+
+    i +=1
+
+#Another example
+a = 5
+while a>=1:
+    print(a,"World")
+    a-=1
+#Another
+i = 1
+while i<=3:
+    print("Hello ",end="")
+    k = 5
+    while k>=1:
+        print('world ',end="")
+        k-=1
+    i+=1
+    print()
+
+#Another for loop
+rows =  int(input("Enter the number of rows"))
+colums =  int(input("Enter the number of colums"))
+symbol = input("Enter the symbol")
+for i in range(rows):
+    for j in range(colums):
+        print(symbol,end=" ")
+    print()
