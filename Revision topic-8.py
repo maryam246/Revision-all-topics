@@ -530,3 +530,113 @@ print(a)
 print(b  )
 print(type(a))
 print(type(b))
+
+#Example of overloading
+print(11+4)
+print(int.__add__(11,4))
+
+#Another example
+class num1:
+    def __init__(self,x):
+        self.x = x
+    def __add__(self, other):
+        return self.x +other.x
+
+class num2:
+    def __init__(self,x):
+        self.x = x
+
+a = num1(22)
+b = num2(3)
+print(a+b)
+
+#Example of Any,All
+l = [1,2,3,4,5,6,7]
+print(all([num%2==0 for num in l]))
+print(any([i%2==1 for i in l]))
+print(all([i%2==1 for i in l]))
+print(any([i%2==0 for i in l]))
+
+s = {2,4,6,8}
+print(all({k%2==0 for k in s}))
+print(any({k%2==1 for k in s}))
+
+#Example of operator module
+import operator
+i =3
+j =8
+print(operator.sub(i,j))
+print(operator.mod(j,i))
+print(operator.__iadd__(i,j))
+print(operator.iconcat('HELLO ','WORLD'))
+
+#Example of  logic gates
+def and_gate(a,b):
+    return a and b
+r = and_gate(True,False)
+print(r)
+
+def or_gate(a,b):
+    return a or b
+r = or_gate(0,0)
+print(r)
+
+# Example of Operator in,not in,is,is not:
+#Membership operator(in, not in)
+k = (1,2,3,4,5,6)
+print(2 in  k)
+print(2 not in k)
+
+print(33 in k)
+print(33 not in k)
+
+#Identity operator(is, is not)
+a = 3
+b = a
+print(a is b)
+print(b is a)
+
+print(b is not a)
+print(a is not b)
+
+#Another example
+a=10
+b =1
+print(a is b)
+print(a is not b)
+
+# Example of Python|a+=b is not always a a=a+b:
+a = [2,3,4,5]
+print(a)
+print(id(a))
+
+# By using a=a+b
+b= [6,7]
+a = a + b
+print(a)
+print(id(a))
+
+#By using a+=b
+a+=b
+print(a)
+print(id(a))
+
+# Example of Difference between == and is operator in python
+# == checks for equality --->value equality
+m = 2
+n = m
+print(m==n)
+
+print(m is n)
+
+#Another example
+a = 3
+b = 2
+print(a==b)
+print(a is b)
+
+#Another example
+l = 4
+k = 4
+print(l==k)
+print(l is k)
