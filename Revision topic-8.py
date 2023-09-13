@@ -683,3 +683,118 @@ for i in range(rows):
     for j in range(colums):
         print(symbol,end=" ")
     print()
+
+#Example of control statement(pass,continue,break)
+for i in range (1,25,2):
+    if i%2==1:
+        pass
+    else:
+        print(i)
+
+#ExAMPLE OF CONTINUE:
+for i in range(2,30,2):
+    if i==18:
+        break
+    else:
+        print(i)
+
+#Example of continue
+l = [12,"ALi",3,4,53.4]
+for i in l:
+    if i==4:
+        continue
+    else:
+        print(i)
+#Another example break
+t = 5
+x = int(input("Enter number of chain"))
+i =1
+while i<=x:
+    if i>t:
+        break
+    print(i,"Chain")
+    i+=1
+print("by","out of stock",sep=" ")
+
+#Example continue
+for i in range(1,101):
+    if i%2==0 and i%5==0:
+        continue
+    print(i)
+print("By")
+
+#Example Looping technique in python:
+# way 1: ennumarate
+for key,value in enumerate(["i","am","a","girl"]):
+    print(key,value)
+
+#way 2: ZIP
+num1 = [1,2,3]
+num2 = ["Maryam",'kiran','Habiba']
+for i in zip(num1,num2):
+    print(i)
+
+#Another
+names = ["Aliana","Mujeeb","kiran"]
+ages = [20,4,67]
+for name,age in zip(names,ages):
+    print(f"My name is{0} and age is {1}".format(name,age))
+
+#Another example
+l =[1,2,3]
+s = ["choclate","cake","Donate"]
+for a,b in zip(l,s):
+    print(f"At the {a}st number {b}".format(a,b))
+
+#Another example dictonary
+dic ={1:"Ali",2:"Bane"}
+for f,g in dic.items():
+    print(f,g)
+
+## way 4: Using Sorted:
+s =[1,23,56,43,32,23,42]
+print("The sorted list of s is: ")
+for i in sorted(s):
+    print(i,end=" ")
+
+print()
+print("The sorted list of s is with no repeated element: ")
+for i in sorted(set(s)):
+    print(i,end=" ")
+
+#way 5: Using reversed order
+r = [1,34,45,6,7,8,8]
+print("Reversed order of r list:")
+for i in reversed(r):
+    print(i,end=" ")
+
+ #slice operation on xrange
+b = list(range(2,20))
+print(b[4:16])
+
+#Example of Programs for printing pyramid technique in python:
+for i in range(1,5):
+    for j in range(1,i+1):
+        print("x",end=" ")
+    print()
+
+#Example of inverted_half pyramid
+for i in range(4,0,-1):
+    for j in range(1,i+1):
+        print("#",end=" ")
+    print()
+
+#Example of full_pyramid
+for i in range(1,5):
+    for j in range(1,5-i):
+        print(" ",end="")
+    for k in range(1,i+1):
+        print("^",end=" ")
+    print()
+#Example of inverted full_pyramid
+for i in range(4,0,-1):
+    for j in range(1,5-i):
+        print(" ",end="")
+    for k in range(1,i+1):
+        print("*",end=" ")
+    print()
