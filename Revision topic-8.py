@@ -2,20 +2,7 @@
 print(help("str"))
 print(help())
 
-
-# importing numpy module
-np = __import__('numpy',globals(),locals(),[],0)
-a = np.array([1,2,3,4])
-print(type(a))
-
-#ANother example:
-np = __import__('numpy',globals(),locals(),['complex','array'],0)
-comp = np.copmplex(3,5)
-arr = np.array([1,2,3,4])
-print(comp)
-print(arr)
-
-#Another example
+#Import  example
 from math import sqrt,pow
 a = sqrt(5)
 b = pow(2,3)
@@ -473,7 +460,7 @@ class City_names():
       self.__c1 = c1
       self.__c2 = c2
 
-   def prnt(self):
+   def print(self):
       print(f"The first country name is {self.__c1}, and another city name is {self.__c2}")
 
 
@@ -527,7 +514,7 @@ A(2,3,4,2)
 a = "Great"
 b = b"Great"
 print(a)
-print(b  )
+print(b)
 print(type(a))
 print(type(b))
 
@@ -685,14 +672,14 @@ for i in range(rows):
     print()
 
 #Example of control statement(pass,continue,break)
-for i in range (1,25,2):
+for i in range (1,25):
     if i%2==1:
         pass
     else:
         print(i)
 
 #ExAMPLE OF CONTINUE:
-for i in range(2,30,2):
+for i in range(2,30):
     if i==18:
         break
     else:
@@ -1042,3 +1029,97 @@ for i in range(4,0,-1):
     for k in range(1,i+1):
         print("*",end=" ")
     print()
+
+def A():
+    import time
+    time.sleep(2)
+    a = "I'm not a simple function,i am a coroutine function."
+    while True:
+        words = (yield )
+        if words in a:
+            print(f" Yeah! we found the word {words}.")
+        else:
+            print(f"Sorry! we dont found the word {words}.")
+search = A()
+next(search)
+search.send("function")
+
+input('Press enter key')
+search.send("Great boook")
+search.close()
+#Another example of coroutine
+def name_prefix(prefix):
+    print("Searching for prefix: ".format(prefix))
+    try:
+        while True:
+            name =(yield)
+            if prefix in name:
+                print(name)
+    except GeneratorExit:
+        print("Closing coroutine.")
+search = name_prefix("Dear")
+next(search)
+search.send("Maryam khan")
+search.send("Dear Maryam")
+
+#Another example
+def producer(sentence,next_coroutine):
+    tokens = sentence.split(" ")
+    for token in tokens:
+        next_coroutine.send(token)
+    next_coroutine.close()
+
+def pattern_fillter(pattern='ing',next_coroutine="Now"):
+    print("searching for {}".format(pattern))
+    try:
+        while True:
+            token = (yield)
+            if pattern in token:
+                next_coroutine.send(token)
+    except GeneratorExit:
+        print("i'm done with filltering.")
+def print_token():
+    print("I am a sink,who print the token.")
+    try:
+        while True:
+            token = (yield)
+            print(token)
+    except GeneratorExit:
+        print("i'm done with printing")
+pt = print_token()
+next(pt)
+pf = pattern_fillter(next_coroutine=pt)
+next(pf)
+
+sentence = "I am the student of virual university."
+producer(sentence,pt)
+# File handling
+f =(open("demo.py",mode='r'))
+data = f.read()
+print(data)
+f.close()
+
+fi = open("demo.py",mode='w')
+data =fi.write('stop execuation')
+print(data)
+f.close()
+
+fil = open("demo.py",mode='a')
+data =fil.write('stop execuation')
+print(data)
+f.close()
+
+#Example of User defined Exception:
+class num_exeption(Exception):
+    pass
+def chek_num():
+    a = int(input('Enter 1st num: '))
+    b = int(input('Enter 2nd num: '))
+    try:
+        if a>b:
+            raise num_exeption
+        print(a,b)
+    except num_exeption:
+        print("Enter invalid colour.")
+c = chek_num()
+print(c)
