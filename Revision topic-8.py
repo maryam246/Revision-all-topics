@@ -792,6 +792,250 @@ for i in range(1,5):
         print("^",end=" ")
     print()
 #Example of inverted full_pyramid
+
+# Example of else with for:
+for i in range(1,6):
+    print(i)
+else:
+    print("Done")
+#slicing the i
+i = range(1,20)
+print(list(i[1:12]))
+
+#Example of switch function:
+def days_of_weak(x):
+    dic={1:"Monday",
+         2:"Tuesday",
+         3:"Wednesday"
+         }
+    return dic[x]
+n=int(input("Enter number: "))
+print(days_of_weak(n))
+
+#Example of Python Itertools:
+from itertools import count
+for i in count(0,10):
+    if i > 60:
+        break
+    print(i)
+
+# Example of Python iter() and next()|converting an object in iterator:
+l = {2,3,4,5,"ali","amina"}
+x = iter(l)
+print(next(x))
+print(next(x))
+print(next(x))
+print(next(x))
+
+#Example of Generators in Python:
+def get_values():
+    i = 23
+    while i<=30:
+        sq = i*i
+        yield sq
+        i+=1
+values =get_values()
+for j in values:
+    print(j)
+#Another generator example with next() and yield().
+def A():
+    a = 1
+    print("The first number is ",a)
+    yield a
+
+    a+=1
+    print("The 2nd number is ", a)
+    yield a
+
+    a+=1
+    print("The 3rd number is ", a)
+    yield a
+
+b = A()
+next(b)
+next(b)
+next(b)
+
+#ANother example
+def generator():
+    n = 1
+    print("The first num is: ")
+    yield n
+
+    n += 1
+    print("The first num is: ")
+    yield n
+
+    n += 1
+    print("The first num is: ")
+    yield n
+call = generator()
+for i in call:
+    print(i)
+
+#Example generator expression
+number = (num**2 for num in range(10))
+for num in number:
+    print(num,end=" ")
+
+#Example generator expression
+generator = (k*2 for k in range(10))
+for k in generator:
+    if k > 12:
+        break
+    print(k,end=" ")
+
+## Example of Class method VS static method in python:
+class student:
+    age = 20
+    def __init__(self,name):
+        self.name=name
+
+    def display(self):
+        print(f"My name is {self.name} and age is {self.age}.")
+
+    @classmethod
+    def update_age(cls,age):
+        cls.age=age
+
+    @staticmethod
+    def check_age(age):
+        if age>18:
+            print("Above 18")
+        else:
+            print("Below 18")
+s1 = student("Maryam")
+s2 =student("Areej")
+
+student.update_age(22)
+student.check_age(10)
+
+s1.display()
+s2.display()
+
+#Another example
+class Fruits:
+    price = 130
+    def __init__(self,name,colour):
+        self.name= name
+        self.colour=colour
+    def display(self):
+        print(f"Fruit name is {self.name}, it's colour is {self.colour} and price is {self.price}.")
+
+    @classmethod
+    def update_price(cls,price):
+        cls.price = price
+
+    @staticmethod
+    def check_price(price):
+        if price>180:
+            print("Rate is high.")
+        else:
+            print("Rate in range.")
+
+f1 = Fruits("Mango","Yellow")
+f2 = Fruits("Apple","Red")
+
+Fruits.update_price(150)
+Fruits.check_price(200)
+
+f1.display()
+f2.display()
+
+#Another example
+class person:
+    age = 20
+    def __init__(self,name):
+        self.name= name
+    def display(self):
+        print(f"My name is {self.name} and age is {self.age}.")
+
+    @classmethod #use to update variable
+    def update_age(cls,age):
+        cls.age=age
+
+    @staticmethod   #use without object
+    def check_num(x):
+        if x>3:
+            print("Good")
+        else:
+            print("Poor")
+p1 = person('kamar')
+p2 = person("Adnan")
+
+person.update_age(25)
+person.check_num(2)
+
+person
+p1.display()
+p2.display()
+
+# Example of Help function in python:
+print(help())
+print(help('str'))
+print(help('math'))
+print(help('functools'))
+print(help("int"))
+
+# Example of Python |import() function:
+import time
+import math
+import functools
+
+#Example import function
+import math as m
+a =25
+r = m.sqrt(a)
+k = m.pow(2,3)
+print(k)
+print(r)
+
+# Example of Coroutine in python:
+def book():
+    import time
+    time.sleep(3)
+    info = "I am a book and i'm provide information."
+    while True:
+        words = (yield )
+        if words in info:
+            print("The words in info.")
+        else:
+            print("Sorr! we dont found this word.")
+
+search = book()
+next(search)
+search.send("a book")
+
+input("Press enter")
+search.send('Great')
+search.close()
+
+# Example of Python bit function on int:
+# int.bit_length():
+n = 4
+print(n.bit_length())
+#int.to_bytes(length,bytedecoder,signed)
+i = 8
+print(i.to_bytes(3,byteorder='big'))
+print(int.to_bytes(11,byteorder="big"))
+#int.from_bytes(bytes,bytedecoder,signed)
+print(int.from_bytes(b'\x00\x08',byteorder='little'))
+print(int.from_bytes(b'\x00,\x08,\x43',byteorder='big'))
+
+# Example of User defined Exception
+class age_exception(Exception):
+
+    pass
+age =18
+try:
+    get =int(input("Enter age: "))
+    if get<age:
+        raise age_exception
+    else:
+        print("You are eligible for casting vote.")
+
+except:
+    print("Invalid age")
 for i in range(4,0,-1):
     for j in range(1,5-i):
         print(" ",end="")
